@@ -1,0 +1,15 @@
+node('maven'){
+    stage('Checkout'){
+        echo "Cloning the Repo"
+        git credentialsId: 'git_token_generated', url: 'https://github.com/deepaklama0815/jenkins-practice.git'
+    }
+    
+    stage('runningScript'){
+        echo "Running the Script"
+        sh "sh test.sh"
+    }
+    
+    stage('Final'){
+        echo "The job is completed successfully"
+    }
+}
